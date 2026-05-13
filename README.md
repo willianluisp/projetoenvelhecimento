@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Envelhecer é um Direito
 
 > **Todas as idades importam.**
@@ -232,3 +233,6 @@ Chapecó / SC — CEP 89804-180
 Projeto educacional desenvolvido no âmbito da **Secretaria de Estado da Educação de Santa Catarina** — Coordenadoria Regional de Educação de Chapecó. Material de uso educacional, sem fins lucrativos.
 
 © 2025 — EEB Profª Lourdes A. S. Lago. Feito com ♥ por estudantes e professores.
+=======
+# SiteMemoriaViva
+>>>>>>> 95dbcd6fc08915aca44e12996d6e550f0647e8ce
