@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Envelhecer é um direito — projeto educacional sobre políticas para o envelhecimento, direitos da pessoa idosa e combate ao etarismo. EEB Profª Lourdes A. S. Lago." />
+  <meta name="theme-color" content="#FAF6EF" />
+  <title>Envelhecer é um Direito — Todas as idades importam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =================== HEADER FIXO =================== -->
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a href="#topo" class="logo" aria-label="Envelhecer é um direito — voltar ao início">
+        <span class="logo__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 41s-13-8.5-13-19a8 8 0 0 1 13-6 8 8 0 0 1 13 6c0 10.5-13 19-13 19z"/>
+            <path d="M19 22c2 1.5 8 1.5 10 0"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          Envelhecer é um <em>Direito</em>
+          <small class="logo__sub">EEB Profª Lourdes A. S. Lago</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#topo" class="nav__link">Início</a></li>
+          <li><a href="#projeto" class="nav__link">O Projeto</a></li>
+          <li><a href="#direitos" class="nav__link">Direitos</a></li>
+          <li><a href="#etarismo" class="nav__link">Etarismo</a></li>
+          <li><a href="#jogo" class="nav__link">Atividade</a></li>
+          <li><a href="#creditos" class="nav__link">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =================== HERO =================== -->
+    <section class="hero" aria-labelledby="heroTitulo">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__blob hero__blob--1"></span>
+        <span class="hero__blob hero__blob--2"></span>
+        <span class="hero__blob hero__blob--3"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <span class="hero__chip">Projeto Educacional · 2025</span>
+          <h1 id="heroTitulo" class="hero__title">
+            Envelhecer é um direito. <em>Todas as idades importam.</em>
+          </h1>
+          <p class="hero__text">
+            Um projeto educacional desenvolvido por estudantes do 8º ano e do Ensino Médio
+            para refletir sobre o envelhecimento humano, valorizar a pessoa idosa e combater
+            o preconceito etário em nossa sociedade.
+          </p>
+          <div class="hero__actions">
+            <a href="#projeto" class="btn btn--primary btn--lg">
+              <span>Conhecer o projeto</span>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+            <a href="#jogo" class="btn btn--ghost btn--lg">Memória Afetiva</a>
+          </div>
+        </div>
+
+        <div class="hero__illustration reveal" aria-hidden="true">
+          <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradPaper" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FFFDF8"/>
+                <stop offset="100%" stop-color="#F2EAD8"/>
+              </linearGradient>
+              <linearGradient id="gradSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#BDDDF0"/>
+                <stop offset="100%" stop-color="#D9E9C9"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Polaroid 1 — gerações -->
+            <g transform="translate(50 100) rotate(-7)">
+              <rect width="180" height="210" rx="10" fill="url(#gradPaper)" stroke="#E5D9BD" stroke-width="2"/>
+              <rect x="14" y="14" width="152" height="152" rx="4" fill="url(#gradSky)"/>
+              <circle cx="65" cy="80" r="20" fill="#F3D4B8"/>
+              <path d="M50 78 Q65 70 80 78" stroke="#7A6A4A" stroke-width="2" fill="none"/>
+              <rect x="50" y="100" width="30" height="40" rx="6" fill="#A4C8A4"/>
+              <circle cx="115" cy="95" r="14" fill="#F3D4B8"/>
+              <rect x="103" y="108" width="24" height="32" rx="5" fill="#E89B9B"/>
+              <path d="M88 60 q-5 -7 -12 -2 q-7 5 0 12 q5 5 12 10 q7 -5 12 -10 q7 -7 0 -12 q-7 -5 -12 2z" fill="#E89B9B" opacity="0.85"/>
+              <text x="90" y="192" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#7A6A4A" font-style="italic">gerações que se cuidam</text>
+            </g>
+
+            <!-- Polaroid 2 — Estatuto -->
+            <g transform="translate(210 130) rotate(8)">
+              <rect width="180" height="210" rx="10" fill="url(#gradPaper)" stroke="#E5D9BD" stroke-width="2"/>
+              <rect x="14" y="14" width="152" height="152" rx="4" fill="#F4D9C0"/>
+              <rect x="50" y="50" width="80" height="90" rx="4" fill="#FFFDF8" stroke="#5B4A35" stroke-width="2.5"/>
+              <line x1="60" y1="70" x2="120" y2="70" stroke="#7A6A4A" stroke-width="2"/>
+              <line x1="60" y1="82" x2="115" y2="82" stroke="#7A6A4A" stroke-width="2"/>
+              <line x1="60" y1="94" x2="110" y2="94" stroke="#7A6A4A" stroke-width="2"/>
+              <line x1="60" y1="106" x2="118" y2="106" stroke="#7A6A4A" stroke-width="2"/>
+              <g transform="translate(110 110)">
+                <circle r="18" fill="#D4A574"/>
+                <path d="M0 -8 L2.5 -2.5 L8 -2.5 L3.5 1 L5.5 7 L0 3.5 L-5.5 7 L-3.5 1 L-8 -2.5 L-2.5 -2.5 Z" fill="#FFFDF8"/>
+              </g>
+              <text x="90" y="192" text-anchor="middle" font-family="Fraunces, serif" font-size="13" fill="#7A6A4A" font-style="italic">Estatuto da Pessoa Idosa</text>
+            </g>
+
+            <g transform="translate(310 70)" opacity="0.85">
+              <path d="M20 36s-15-9-15-22a9 9 0 0 1 15-7 9 9 0 0 1 15 7c0 13-15 22-15 22z" fill="#E89B9B"/>
+            </g>
+
+            <g transform="translate(50 330)" opacity="0.8">
+              <path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="#E8B873"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <a href="#projeto" class="hero__scroll" aria-label="Rolar para a próxima seção">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- =================== O PROJETO =================== -->
+    <section class="section projeto" id="projeto" aria-labelledby="projetoTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Sobre o projeto</span>
+          <h2 id="projetoTitulo" class="section__title">
+            Políticas da Educação para o <em>Envelhecimento</em>
+          </h2>
+          <p class="section__lead">
+            Uma iniciativa interdisciplinar da <strong>EEB Profª Lourdes A. S. Lago</strong>,
+            em Chapecó/SC, que une diferentes áreas do conhecimento para discutir os direitos
+            da pessoa idosa e construir uma sociedade mais inclusiva e respeitosa
+            com todas as fases da vida.
+          </p>
+        </div>
+
+        <div class="ficha-projeto reveal">
+          <div class="ficha-projeto__item">
+            <div class="ficha-projeto__icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12l13-8 13 8-13 8z"/>
+                <path d="M8 14v8a8 8 0 0 0 16 0v-8"/>
+              </svg>
+            </div>
+            <span class="ficha-projeto__label">Escola</span>
+            <span class="ficha-projeto__valor">EEB Profª Lourdes A. S. Lago</span>
+            <small>Chapecó · Santa Catarina</small>
+          </div>
+
+          <div class="ficha-projeto__item">
+            <div class="ficha-projeto__icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="6" width="24" height="20" rx="3"/>
+                <path d="M4 12h24M10 6V3M22 6V3"/>
+              </svg>
+            </div>
+            <span class="ficha-projeto__label">Período</span>
+            <span class="ficha-projeto__valor">Maio de 2026</span>
+            <small>Ano letivo 2026</small>
+          </div>
+
+          <div class="ficha-projeto__item">
+            <div class="ficha-projeto__icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="10" cy="12" r="4"/>
+                <circle cx="22" cy="12" r="4"/>
+                <path d="M4 26v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                <path d="M16 26v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+              </svg>
+            </div>
+            <span class="ficha-projeto__label">Turmas</span>
+            <span class="ficha-projeto__valor">8º Ano e Ensino Médio</span>
+            <small>Ensino Fundamental II e Médio</small>
+          </div>
+
+          <div class="ficha-projeto__item">
+            <div class="ficha-projeto__icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 6h24v20H4z"/>
+                <path d="M9 11h14M9 16h14M9 21h10"/>
+              </svg>
+            </div>
+            <span class="ficha-projeto__label">Disciplinas</span>
+            <span class="ficha-projeto__valor">Interdisciplinar</span>
+            <small>Artes · Educação Física · História · Língua Portuguesa</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CONTEXTO =================== -->
+    <section class="section contexto" aria-labelledby="contextoTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">O envelhecimento hoje</span>
+          <h2 id="contextoTitulo" class="section__title">
+            Uma realidade que <em>cresce</em> — e que exige nossa atenção.
+          </h2>
+        </div>
+
+        <div class="contexto__bloco reveal">
+          <div class="contexto__texto">
+            <p>
+              O envelhecimento da população é uma realidade crescente no Brasil e no mundo,
+              resultado do aumento da expectativa de vida e da redução das taxas de natalidade.
+              Diante desse cenário, surgem diversos <strong>desafios sociais, econômicos e políticos</strong>
+              que exigem a criação e o fortalecimento de políticas públicas voltadas à população idosa.
+            </p>
+            <p>
+              Apesar dos avanços legais, como o <strong>Estatuto da Pessoa Idosa</strong> e a
+              <strong>Política Nacional do Idoso</strong>, ainda existem lacunas entre o que está
+              previsto na lei e o que é efetivamente garantido na prática.
+            </p>
+          </div>
+
+          <aside class="contexto__perguntas" aria-label="Perguntas norteadoras do projeto">
+            <h3>Perguntas que nos movem</h3>
+            <ul>
+              <li>As políticas públicas atuais atendem de forma adequada às necessidades reais da população idosa?</li>
+              <li>Como garantir um envelhecimento digno, ativo e com qualidade de vida?</li>
+              <li>De que forma a sociedade, a escola e o poder público podem promover respeito, inclusão e autonomia para as pessoas idosas?</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== OBJETIVOS =================== -->
+    <section class="section objetivos" id="objetivos" aria-labelledby="objetivosTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Objetivos</span>
+          <h2 id="objetivosTitulo" class="section__title">
+            O que <em>queremos</em> alcançar.
+          </h2>
+        </div>
+
+        <div class="objetivos__grid">
+          <article class="objetivo-geral reveal">
+            <span class="objetivo-geral__tag">Objetivo geral</span>
+            <p>
+              Promover a educação para o envelhecimento, incentivando o <strong>respeito</strong>,
+              a <strong>valorização da pessoa idosa</strong> e a compreensão do envelhecimento
+              como um processo natural e socialmente relevante.
+            </p>
+          </article>
+
+          <div class="objetivos-especificos reveal">
+            <h3 class="objetivos-especificos__titulo">Objetivos específicos</h3>
+            <ol class="objetivos-lista">
+              <li>
+                <span class="objetivos-lista__num">01</span>
+                <span>Compreender o conceito de envelhecimento humano e populacional.</span>
+              </li>
+              <li>
+                <span class="objetivos-lista__num">02</span>
+                <span>Identificar aspectos físicos, emocionais e sociais do envelhecimento.</span>
+              </li>
+              <li>
+                <span class="objetivos-lista__num">03</span>
+                <span>Conhecer os direitos da pessoa idosa previstos na legislação brasileira.</span>
+              </li>
+              <li>
+                <span class="objetivos-lista__num">04</span>
+                <span>Refletir sobre o papel da família e da sociedade.</span>
+              </li>
+              <li>
+                <span class="objetivos-lista__num">05</span>
+                <span>Combater estereótipos e preconceitos relacionados à velhice.</span>
+              </li>
+              <li>
+                <span class="objetivos-lista__num">06</span>
+                <span>Estimular a empatia, o respeito e a convivência intergeracional.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== DIREITOS =================== -->
+    <section class="section direitos" id="direitos" aria-labelledby="direitosTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Direitos da pessoa idosa</span>
+          <h2 id="direitosTitulo" class="section__title">
+            O que a <em>lei</em> garante.
+          </h2>
+          <p class="section__lead">
+            O Estatuto da Pessoa Idosa (Lei nº 10.741/2003) assegura uma série de direitos
+            fundamentais. Conhecê-los é o primeiro passo para defendê-los.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card reveal" style="--delay: 0ms">
+            <div class="card__icon card__icon--rose">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 4v24M4 16h24"/>
+                <circle cx="16" cy="16" r="12"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Saúde</h3>
+            <p class="card__text">
+              Atendimento prioritário no SUS, distribuição gratuita de medicamentos
+              e acompanhamento geriátrico especializado.
+            </p>
+          </article>
+
+          <article class="card reveal" style="--delay: 80ms">
+            <div class="card__icon card__icon--blue">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="24" r="4"/>
+                <circle cx="23" cy="24" r="4"/>
+                <path d="M9 24l4-10h8l2 10"/>
+                <path d="M13 14l-2-6h4"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Mobilidade</h3>
+            <p class="card__text">
+              Gratuidade no transporte coletivo urbano, vagas reservadas e cidades
+              mais acessíveis para todas as idades.
+            </p>
+          </article>
+
+          <article class="card reveal" style="--delay: 160ms">
+            <div class="card__icon card__icon--gold">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="6" width="24" height="16" rx="2"/>
+                <path d="M4 22v4M28 22v4M10 26h12"/>
+                <path d="M12 12h8M12 16h5"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Inclusão Digital</h3>
+            <p class="card__text">
+              Acesso à tecnologia e capacitação para o uso da internet,
+              combatendo o isolamento digital da terceira idade.
+            </p>
+          </article>
+
+          <article class="card reveal" style="--delay: 240ms">
+            <div class="card__icon card__icon--green">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 12h20l-2 14H8z"/>
+                <path d="M11 12V8a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Trabalho</h3>
+            <p class="card__text">
+              Direito ao trabalho digno, sem discriminação por idade, com
+              valorização da experiência acumulada ao longo da vida.
+            </p>
+          </article>
+
+          <article class="card reveal" style="--delay: 320ms">
+            <div class="card__icon card__icon--blue">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 28S4 20 4 12a6 6 0 0 1 12-4 6 6 0 0 1 12 4c0 8-12 16-12 16z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Assistência Social</h3>
+            <p class="card__text">
+              Benefício de Prestação Continuada (BPC), centros de convivência
+              e amparo a quem se encontra em situação de vulnerabilidade.
+            </p>
+          </article>
+
+          <article class="card reveal" style="--delay: 400ms">
+            <div class="card__icon card__icon--rose">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="6" width="20" height="20" rx="3"/>
+                <path d="M11 12h10M11 16h10M11 20h6"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Vida e Dignidade</h3>
+            <p class="card__text">
+              Proteção contra qualquer forma de violência, negligência,
+              discriminação ou abandono — dever da família e do Estado.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== ETARISMO =================== -->
+    <section class="section etarismo" id="etarismo" aria-labelledby="etarismoTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Etarismo</span>
+          <h2 id="etarismoTitulo" class="section__title">
+            O preconceito que <em>invisibiliza</em> tantos.
+          </h2>
+          <p class="section__lead">
+            Etarismo é a discriminação baseada na idade. Ele limita a participação social,
+            reforça desigualdades e apaga as contribuições culturais, sociais e econômicas
+            das pessoas idosas. Vamos desmontar alguns mitos?
+          </p>
+        </div>
+
+        <div class="mitos">
+          <article class="mito reveal" style="--delay: 0ms">
+            <div class="mito__cabeca">
+              <span class="mito__rotulo mito__rotulo--falso">Mito</span>
+              <p class="mito__texto">“Idoso não aprende coisas novas.”</p>
+            </div>
+            <div class="mito__corpo">
+              <span class="mito__rotulo mito__rotulo--verdade">Verdade</span>
+              <p>
+                A capacidade de aprender não tem prazo de validade. A mente continua
+                plástica ao longo de toda a vida — basta oportunidade, paciência e estímulo.
+              </p>
+            </div>
+          </article>
+
+          <article class="mito reveal" style="--delay: 100ms">
+            <div class="mito__cabeca">
+              <span class="mito__rotulo mito__rotulo--falso">Mito</span>
+              <p class="mito__texto">“Velhice é sinônimo de inutilidade.”</p>
+            </div>
+            <div class="mito__corpo">
+              <span class="mito__rotulo mito__rotulo--verdade">Verdade</span>
+              <p>
+                Pessoas idosas seguem produtivas, criativas e essenciais. Cuidam de famílias,
+                transmitem cultura, trabalham, votam, ensinam e participam ativamente
+                da vida social.
+              </p>
+            </div>
+          </article>
+
+          <article class="mito reveal" style="--delay: 200ms">
+            <div class="mito__cabeca">
+              <span class="mito__rotulo mito__rotulo--falso">Mito</span>
+              <p class="mito__texto">“Tecnologia é coisa só de jovem.”</p>
+            </div>
+            <div class="mito__corpo">
+              <span class="mito__rotulo mito__rotulo--verdade">Verdade</span>
+              <p>
+                A inclusão digital é um direito de todas as idades. Quando bem ensinada,
+                a tecnologia conecta gerações, amplia autonomia e combate o isolamento.
+              </p>
+            </div>
+          </article>
+
+          <article class="mito reveal" style="--delay: 300ms">
+            <div class="mito__cabeca">
+              <span class="mito__rotulo mito__rotulo--falso">Mito</span>
+              <p class="mito__texto">“Idoso é frágil e precisa só descansar.”</p>
+            </div>
+            <div class="mito__corpo">
+              <span class="mito__rotulo mito__rotulo--verdade">Verdade</span>
+              <p>
+                O envelhecimento ativo — preconizado pela OMS — defende exatamente o
+                contrário: movimento, convivência, propósito e participação são pilares
+                de uma velhice saudável.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== INTERGERACIONAL =================== -->
+    <section class="section intergeracional" aria-labelledby="interTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Diálogo entre gerações</span>
+          <h2 id="interTitulo" class="section__title">
+            Quando <em>idades se encontram</em>, todos crescem.
+          </h2>
+          <p class="section__lead">
+            Convivência intergeracional é o convite para que avós, pais, filhos e netos
+            partilhem histórias, saberes e afetos. Cada conversa é uma ponte que combate
+            a solidão e enriquece todas as gerações.
+          </p>
+        </div>
+
+        <div class="inter-grid">
+          <article class="inter-card reveal" style="--delay: 0ms">
+            <span class="inter-card__emoji" aria-hidden="true">👴🏽👧🏽</span>
+            <h3>Histórias que ensinam</h3>
+            <p>
+              As memórias da pessoa idosa são patrimônio vivo. Ouvi-las é aprender
+              sobre família, cultura e tempos que livros não contam.
+            </p>
+          </article>
+
+          <article class="inter-card reveal" style="--delay: 100ms">
+            <span class="inter-card__emoji" aria-hidden="true">🎨</span>
+            <h3>Arte que conecta</h3>
+            <p>
+              Pelas disciplinas de Artes e Educação Física, criamos atividades
+              que aproximam corpos, sentimentos e expressões de todas as idades.
+            </p>
+          </article>
+
+          <article class="inter-card reveal" style="--delay: 200ms">
+            <span class="inter-card__emoji" aria-hidden="true">📖</span>
+            <h3>Palavras que aproximam</h3>
+            <p>
+              Em Língua Portuguesa e História, registramos vozes, lemos sobre direitos
+              e produzimos textos que celebram a diversidade etária.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== JOGO DA MEMÓRIA =================== -->
+    <section class="section jogo" id="jogo" aria-labelledby="jogoTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Atividade prática</span>
+          <h2 id="jogoTitulo" class="section__title">
+            Memória Afetiva: <em>reviva</em> com a gente.
+          </h2>
+          <p class="section__lead">
+            Um pequeno gesto de empatia: jogue você e convide alguém mais velho da família.
+            As imagens são pretexto para boas conversas — e mostram, na prática,
+            que estimular a memória é também estimular o afeto.
+          </p>
+        </div>
+
+        <div class="jogo__painel reveal" role="region" aria-label="Estatísticas do jogo">
+          <div class="painel__item">
+            <span class="painel__label">Jogadas</span>
+            <span class="painel__valor" id="contadorJogadas">0</span>
+          </div>
+          <div class="painel__item">
+            <span class="painel__label">Tempo</span>
+            <span class="painel__valor" id="cronometro">00:00</span>
+          </div>
+          <div class="painel__item">
+            <span class="painel__label">Pares</span>
+            <span class="painel__valor"><span id="paresEncontrados">0</span> / <span id="totalPares">8</span></span>
+          </div>
+          <div class="painel__acoes">
+            <button class="btn btn--secondary" id="btnReiniciar" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7"/>
+                <path d="M3 4v5h5"/>
+              </svg>
+              Reiniciar
+            </button>
+            <button class="btn btn--ghost btn--icon" id="btnSom" type="button" aria-label="Ativar ou desativar sons" aria-pressed="true">
+              <svg id="iconeSomOn" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M11 5L6 9H3v6h3l5 4V5z"/>
+                <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                <path d="M18.5 5.5a9 9 0 0 1 0 13"/>
+              </svg>
+              <svg id="iconeSomOff" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+                <path d="M11 5L6 9H3v6h3l5 4V5z"/>
+                <line x1="17" y1="9" x2="22" y2="14"/>
+                <line x1="22" y1="9" x2="17" y2="14"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="tabuleiro reveal" id="tabuleiro" role="grid" aria-label="Tabuleiro do jogo da memória"></div>
+
+        <p class="jogo__dica reveal">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          Cada par encontrado é um convite para uma boa história entre gerações.
+        </p>
+      </div>
+    </section>
+
+    <!-- =================== METODOLOGIA & RESULTADOS =================== -->
+    <section class="section metodologia" aria-labelledby="metodTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Caminho do projeto</span>
+          <h2 id="metodTitulo" class="section__title">
+            Como <em>fazemos</em> acontecer.
+          </h2>
+        </div>
+
+        <div class="metodologia__grid">
+          <article class="meto-bloco reveal" style="--delay: 0ms">
+            <h3>Metodologia</h3>
+            <p>
+              O projeto se desenvolve por meio de aulas dialogadas, rodas de conversa,
+              pesquisas orientadas, leitura e análise de textos, exibição de vídeos,
+              atividades práticas, saídas de campo, arte terapia, <strong>jogos digitais</strong>
+              e produções individuais e coletivas — sempre adaptadas à faixa etária
+              e ao nível de ensino.
+            </p>
+          </article>
+
+          <article class="meto-bloco reveal" style="--delay: 100ms">
+            <h3>Resultados esperados</h3>
+            <ul>
+              <li>Desenvolvimento da consciência cidadã</li>
+              <li>Valorização da pessoa idosa</li>
+              <li>Redução de preconceitos relacionados ao envelhecimento</li>
+              <li>Fortalecimento das relações intergeracionais</li>
+              <li>Formação de alunos mais críticos, empáticos e responsáveis</li>
+            </ul>
+          </article>
+
+          <article class="meto-bloco reveal" style="--delay: 200ms">
+            <h3>Culminância</h3>
+            <ul>
+              <li>Exposição dos trabalhos produzidos</li>
+              <li>Semana temática ou Dia da Pessoa Idosa</li>
+              <li>Apresentações culturais ou palestras educativas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== MOTIVACIONAL =================== -->
+    <section class="section motivacional" aria-labelledby="motivTitulo">
+      <div class="container motivacional__inner reveal">
+        <div class="motivacional__aspa" aria-hidden="true">“</div>
+        <h2 id="motivTitulo" class="motivacional__frase">
+          Discutir políticas de envelhecimento não é tratar apenas do futuro — é compreender o presente e construir uma sociedade mais justa, inclusiva e preparada para todas as fases da vida.
+        </h2>
+        <p class="motivacional__autor">— Projeto EEB Profª Lourdes A. S. Lago</p>
+      </div>
+    </section>
+
+    <!-- =================== CRÉDITOS =================== -->
+    <section class="section creditos" id="creditos" aria-labelledby="credTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Quem faz acontecer</span>
+          <h2 id="credTitulo" class="section__title">
+            Professores <em>responsáveis</em>.
+          </h2>
+          <p class="section__lead">
+            Educadoras e educadores que conduzem este projeto interdisciplinar
+            ao lado dos estudantes do 8º Ano e do Ensino Médio.
+          </p>
+        </div>
+
+        <div class="creditos-grid">
+          <article class="prof-card reveal" style="--delay: 0ms; --bg: var(--primary-soft); --fg: var(--primary-dk);">
+            <div class="prof-card__avatar">C</div>
+            <h3>Cassiana</h3>
+            <p>Professora responsável</p>
+          </article>
+          <article class="prof-card reveal" style="--delay: 100ms; --bg: var(--secondary-soft); --fg: var(--secondary-dk);">
+            <div class="prof-card__avatar">L</div>
+            <h3>Luciano</h3>
+            <p>Professor responsável</p>
+          </article>
+          <article class="prof-card reveal" style="--delay: 200ms; --bg: var(--accent-soft); --fg: var(--accent-dk);">
+            <div class="prof-card__avatar">R</div>
+            <h3>Roberta</h3>
+            <p>Professora responsável</p>
+          </article>
+          <article class="prof-card reveal" style="--delay: 300ms; --bg: var(--rose-soft); --fg: #B86B6B;">
+            <div class="prof-card__avatar">R</div>
+            <h3>Roseli</h3>
+            <p>Professora responsável</p>
+          </article>
+        </div>
+
+        <div class="disciplinas reveal">
+          <h3>Áreas envolvidas</h3>
+          <ul>
+            <li><span aria-hidden="true">🎨</span> Artes</li>
+            <li><span aria-hidden="true">🏃</span> Educação Física</li>
+            <li><span aria-hidden="true">📜</span> História</li>
+            <li><span aria-hidden="true">📚</span> Língua Portuguesa</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer" id="contato">
+    <div class="container footer__inner">
+      <div class="footer__col footer__col--brand">
+        <a href="#topo" class="logo logo--light">
+          <span class="logo__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 41s-13-8.5-13-19a8 8 0 0 1 13-6 8 8 0 0 1 13 6c0 10.5-13 19-13 19z"/>
+              <path d="M19 22c2 1.5 8 1.5 10 0"/>
+            </svg>
+          </span>
+          <span class="logo__text">
+            Envelhecer é um <em>Direito</em>
+            <small class="logo__sub logo__sub--light">Todas as idades importam</small>
+          </span>
+        </a>
+        <p class="footer__sobre">
+          Projeto educacional desenvolvido na EEB Profª Lourdes A. S. Lago,
+          em Chapecó/SC, sobre políticas da educação para o envelhecimento.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__titulo">Navegação</h3>
+        <ul class="footer__lista">
+          <li><a href="#topo">Início</a></li>
+          <li><a href="#projeto">O Projeto</a></li>
+          <li><a href="#direitos">Direitos</a></li>
+          <li><a href="#etarismo">Etarismo</a></li>
+          <li><a href="#jogo">Atividade</a></li>
+          <li><a href="#creditos">Créditos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__titulo">A Escola</h3>
+        <ul class="footer__lista">
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rua Caramuru, 300-E, Bela Vista — Chapecó/SC, CEP 89804-180</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/></svg>
+            <a href="mailto:loudeslago@sed.sc.gov.br">loudeslago@sed.sc.gov.br</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V21a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 5.18 2 2 0 0 1 4.11 3h4.09a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.91 11.09a16 16 0 0 0 6 6l1.46-1.54a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.92z"/></svg>
+            (49) 2049-7601
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__titulo">Referências</h3>
+        <ul class="footer__lista footer__lista--ref">
+          <li>BRASIL. Estatuto da Pessoa Idosa — Lei nº 10.741/2003.</li>
+          <li>BRASIL. MEC. Base Nacional Comum Curricular (BNCC).</li>
+          <li>Organização Mundial da Saúde (OMS). Envelhecimento ativo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <p>© 2025 · Secretaria de Estado da Educação · CRE Chapecó · EEB Profª Lourdes A. S. Lago. Feito com <span aria-label="amor">♥</span> por estudantes e professores.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
