@@ -6,7 +6,7 @@
   <meta name="description" content="Envelhecer é um direito — projeto educacional sobre políticas para o envelhecimento, direitos da pessoa idosa e combate ao etarismo. EEB Profª Lourdes A. S. Lago." />
   <meta name="theme-color" content="#FAF6EF" />
   <title>Envelhecer é um Direito — Todas as idades importam</title>
-  <link rel="icon" type="image/png" href="./image/coracao.png">
+  <link rel="icon" type="image/png" href="./image/Logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,12 +20,22 @@
   <header class="header" id="topo">
     <div class="container header__inner">
       <a href="#topo" class="logo" aria-label="Envelhecer é um direito — voltar ao início">
-        <span class="logo__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 41s-13-8.5-13-19a8 8 0 0 1 13-6 8 8 0 0 1 13 6c0 10.5-13 19-13 19z"/>
-            <path d="M19 22c2 1.5 8 1.5 10 0"/>
-          </svg>
-        </span>
+        <span class="logo__icon" style="background: transparent; box-shadow: none; padding: 0;">
+    <img
+        src="./image/Logo.png"
+        alt="Logo Projeto Envelhecer"
+        style="
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            display: block;
+            position: relative;
+            top: -10px;
+        "
+    >
+</span>
         <span class="logo__text">
           Envelhecer é um <em>Direito</em>
           <small class="logo__sub">EEB Profª Lourdes A. S. Lago</small>
@@ -40,9 +50,11 @@
         <ul class="nav__list">
           <li><a href="#topo" class="nav__link">Início</a></li>
           <li><a href="#projeto" class="nav__link">O Projeto</a></li>
+          <li><a href="#prevencao" class="nav__link">Prevenção</a></li>
           <li><a href="#direitos" class="nav__link">Direitos</a></li>
           <li><a href="#etarismo" class="nav__link">Etarismo</a></li>
           <li><a href="#jogo" class="nav__link">Atividade</a></li>
+          <li><a href="#visitas" class="nav__link">Visitas</a></li>
           <li><a href="#creditos" class="nav__link">Créditos</a></li>
         </ul>
       </nav>
@@ -51,17 +63,58 @@
 
   <main>
 
-    <!-- =================== HERO =================== -->
-    <section class="hero" aria-labelledby="heroTitulo">
-      <div class="hero__bg" aria-hidden="true">
-        <span class="hero__blob hero__blob--1"></span>
-        <span class="hero__blob hero__blob--2"></span>
-        <span class="hero__blob hero__blob--3"></span>
+<!-- =================== HERO =================== -->
+<section class="hero" aria-labelledby="heroTitulo">
+
+  <!-- Carrossel de fundo -->
+  <div class="hero__carousel" aria-hidden="true" id="heroCarousel">
+    <div class="hero__carousel-track" id="carouselTrack">
+
+      <!-- SLIDE 1 — Vídeo -->
+      <div class="hero__slide active">
+        <video autoplay muted loop playsinline>
+          <source src="./image/vide0.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- SLIDE 2 em diante — Fotos -->
+      <div class="hero__slide">
+        <img src="./image/foto1.jpg" alt="" loading="eager" />
+      </div>
+      <div class="hero__slide">
+        <img src="./image/foto2.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="hero__slide">
+        <img src="./image/foto3.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="hero__slide">
+        <img src="./image/foto4.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="hero__slide">
+        <img src="./image/foto5.jpg" alt="" loading="lazy" />
+      </div>
+
+    </div>
+  </div>
+
+        <!-- Overlay gradiente para legibilidade do texto -->
+        <div class="hero__overlay"></div>
+
+        <!-- Controles do carrossel -->
+        <button class="hero__carousel-btn hero__carousel-btn--prev" id="carouselPrev" aria-label="Imagem anterior">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="hero__carousel-btn hero__carousel-btn--next" id="carouselNext" aria-label="Próxima imagem">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
+        <!-- Indicadores (dots) -->
+        <div class="hero__carousel-dots" id="carouselDots" role="tablist" aria-label="Slides do carrossel"></div>
       </div>
 
       <div class="container hero__inner">
         <div class="hero__content reveal">
-          <span class="hero__chip">Projeto Educacional · 2025</span>
+          <span class="hero__chip">Projeto Educacional · 2026</span>
           <h1 id="heroTitulo" class="hero__title">
             Envelhecer é um direito. <em>Todas as idades importam.</em>
           </h1>
@@ -77,65 +130,18 @@
                 <path d="M5 12h14M13 6l6 6-6 6"/>
               </svg>
             </a>
-            <a href="#jogo" class="btn btn--ghost btn--lg">Memória Afetiva</a>
+            <a href="#jogo" class="btn btn--ghost btn--lg hero__btn--ghost-light">Memória Afetiva</a>
           </div>
-        </div>
-
-        <div class="hero__illustration reveal" aria-hidden="true">
-          <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gradPaper" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#FFFDF8"/>
-                <stop offset="100%" stop-color="#F2EAD8"/>
-              </linearGradient>
-              <linearGradient id="gradSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#BDDDF0"/>
-                <stop offset="100%" stop-color="#D9E9C9"/>
-              </linearGradient>
-            </defs>
-
-            <!-- Polaroid 1 — gerações -->
-            <g transform="translate(50 100) rotate(-7)">
-              <rect width="180" height="210" rx="10" fill="url(#gradPaper)" stroke="#E5D9BD" stroke-width="2"/>
-              <rect x="14" y="14" width="152" height="152" rx="4" fill="url(#gradSky)"/>
-              <circle cx="65" cy="80" r="20" fill="#F3D4B8"/>
-              <path d="M50 78 Q65 70 80 78" stroke="#7A6A4A" stroke-width="2" fill="none"/>
-              <rect x="50" y="100" width="30" height="40" rx="6" fill="#A4C8A4"/>
-              <circle cx="115" cy="95" r="14" fill="#F3D4B8"/>
-              <rect x="103" y="108" width="24" height="32" rx="5" fill="#E89B9B"/>
-              <path d="M88 60 q-5 -7 -12 -2 q-7 5 0 12 q5 5 12 10 q7 -5 12 -10 q7 -7 0 -12 q-7 -5 -12 2z" fill="#E89B9B" opacity="0.85"/>
-              <text x="90" y="192" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#7A6A4A" font-style="italic">gerações que se cuidam</text>
-            </g>
-
-            <!-- Polaroid 2 — Estatuto -->
-            <g transform="translate(210 130) rotate(8)">
-              <rect width="180" height="210" rx="10" fill="url(#gradPaper)" stroke="#E5D9BD" stroke-width="2"/>
-              <rect x="14" y="14" width="152" height="152" rx="4" fill="#F4D9C0"/>
-              <rect x="50" y="50" width="80" height="90" rx="4" fill="#FFFDF8" stroke="#5B4A35" stroke-width="2.5"/>
-              <line x1="60" y1="70" x2="120" y2="70" stroke="#7A6A4A" stroke-width="2"/>
-              <line x1="60" y1="82" x2="115" y2="82" stroke="#7A6A4A" stroke-width="2"/>
-              <line x1="60" y1="94" x2="110" y2="94" stroke="#7A6A4A" stroke-width="2"/>
-              <line x1="60" y1="106" x2="118" y2="106" stroke="#7A6A4A" stroke-width="2"/>
-              <g transform="translate(110 110)">
-                <circle r="18" fill="#D4A574"/>
-                <path d="M0 -8 L2.5 -2.5 L8 -2.5 L3.5 1 L5.5 7 L0 3.5 L-5.5 7 L-3.5 1 L-8 -2.5 L-2.5 -2.5 Z" fill="#FFFDF8"/>
-              </g>
-              <text x="90" y="192" text-anchor="middle" font-family="Fraunces, serif" font-size="13" fill="#7A6A4A" font-style="italic">Estatuto da Pessoa Idosa</text>
-            </g>
-
-            <g transform="translate(310 70)" opacity="0.85">
-              <path d="M20 36s-15-9-15-22a9 9 0 0 1 15-7 9 9 0 0 1 15 7c0 13-15 22-15 22z" fill="#E89B9B"/>
-            </g>
-
-            <g transform="translate(50 330)" opacity="0.8">
-              <path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="#E8B873"/>
-            </g>
-          </svg>
         </div>
       </div>
 
       <a href="#projeto" class="hero__scroll" aria-label="Rolar para a próxima seção">
         <span></span>
+      </a>
+
+      <!-- Indicador de swipe para mobile -->
+      <a href="#projeto" class="hero__swipe" aria-label="Deslize para baixo">
+        <span class="hero__swipe-finger">☟</span>
       </a>
     </section>
 
@@ -299,6 +305,165 @@
       </div>
     </section>
 
+    <!-- =================== PREVENÇÃO =================== -->
+    <section class="section prevencao" id="prevencao" aria-labelledby="prevencaoTitulo">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Cuidar hoje para colher amanhã</span>
+          <h2 id="prevencaoTitulo" class="section__title">
+            Prevenção para um <em>Envelhecimento Saudável</em>
+          </h2>
+          <p class="section__lead">
+            Envelhecer bem começa muito antes da velhice. Pequenas escolhas ao longo da vida
+            constroem uma velhice com mais saúde, autonomia e alegria.
+          </p>
+        </div>
+
+        <!-- Poster responsivo: grid de pilares -->
+        <div class="prevencao__poster reveal" aria-label="Pilares para um envelhecimento saudável">
+          <div class="poster__cabecalho">
+            <p class="poster__pre">Pilares para um</p>
+            <h3 class="poster__titulo">Envelhecimento Saudável</h3>
+          </div>
+
+          <div class="poster__pilares">
+
+            <div class="pilar" style="--pilar-bg:#F6E6CF;--pilar-cor:#B98756;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#F6E6CF"/>
+                  <circle cx="40" cy="40" r="22" stroke="#B98756" stroke-width="2.5"/>
+                  <ellipse cx="40" cy="40" rx="14" ry="6" stroke="#B98756" stroke-width="1.8"/>
+                  <path d="M28 27 Q40 19 52 27" stroke="#8AB48A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <path d="M26 34 Q40 23 54 34" stroke="#8AB48A" stroke-width="2" stroke-linecap="round" fill="none"/>
+                  <line x1="20" y1="20" x2="20" y2="60" stroke="#B98756" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="60" y1="20" x2="60" y2="60" stroke="#B98756" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong class="pilar__nome">🥦 Alimentação</strong>
+              <span class="pilar__desc">Frutas, vegetais e pouca gordura</span>
+            </div>
+
+            <div class="pilar" style="--pilar-bg:#DCEBF7;--pilar-cor:#5790C6;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#DCEBF7"/>
+                  <circle cx="40" cy="24" r="8" stroke="#5790C6" stroke-width="2.5"/>
+                  <line x1="40" y1="32" x2="40" y2="52" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M40 42 L26 50" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M40 42 L54 48" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M40 52 L30 66" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M40 52 L50 66" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong class="pilar__nome">🚶 Movimento</strong>
+              <span class="pilar__desc">Caminhadas e exercícios leves</span>
+            </div>
+
+            <div class="pilar" style="--pilar-bg:#F7DCDC;--pilar-cor:#E89B9B;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#F7DCDC"/>
+                  <circle cx="28" cy="28" r="7" stroke="#E89B9B" stroke-width="2.5"/>
+                  <circle cx="52" cy="28" r="7" stroke="#E89B9B" stroke-width="2.5"/>
+                  <path d="M40 52 C34 44,24 46,24 53 C24 60,40 67,40 67 C40 67,56 60,56 53 C56 46,46 44,40 52Z" fill="#E89B9B" opacity=".7"/>
+                </svg>
+              </div>
+              <strong class="pilar__nome">❤️ Vínculos</strong>
+              <span class="pilar__desc">Família, amigos e comunidade</span>
+            </div>
+
+            <div class="pilar" style="--pilar-bg:#DEEBDB;--pilar-cor:#6E9B6E;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#DEEBDB"/>
+                  <path d="M22 38 C21 27,31 18,40 20 C49 18,59 27,58 38 C61 46,57 57,51 59 C49 66,44 70,40 68 C36 70,31 66,29 59 C23 57,19 46,22 38Z" fill="none" stroke="#6E9B6E" stroke-width="2.5"/>
+                  <path d="M40 20 L40 68" stroke="#6E9B6E" stroke-width="1.5" stroke-dasharray="3 3" opacity=".5"/>
+                  <path d="M28 42 Q34 35 40 43 Q46 35 52 42" fill="none" stroke="#6E9B6E" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="40" cy="12" r="6" fill="none" stroke="#D4A574" stroke-width="2"/>
+                  <path d="M37 18 L37 22 L43 22 L43 18" fill="none" stroke="#D4A574" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <strong class="pilar__nome">📚 Mente Ativa</strong>
+              <span class="pilar__desc">Leitura, jogos e aprendizado</span>
+            </div>
+
+            <div class="pilar" style="--pilar-bg:#F2EAD8;--pilar-cor:#B98756;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#F2EAD8"/>
+                  <path d="M33 26 C28 36,30 55,40 58 C28 59,17 47,19 33 C20 21,33 13,40 17 C38 19,34 22,33 26Z" fill="#D4A574" opacity=".7"/>
+                  <circle cx="52" cy="24" r="3" fill="#D4A574" opacity=".6"/>
+                  <circle cx="58" cy="36" r="2" fill="#D4A574" opacity=".5"/>
+                  <circle cx="50" cy="16" r="2.5" fill="#D4A574" opacity=".6"/>
+                  <text x="50" y="54" font-family="Georgia,serif" font-size="12" fill="#B98756" opacity=".8">z</text>
+                  <text x="56" y="44" font-family="Georgia,serif" font-size="9" fill="#B98756" opacity=".6">z</text>
+                </svg>
+              </div>
+              <strong class="pilar__nome">😴 Sono</strong>
+              <span class="pilar__desc">7 a 9h por noite com rotina regular</span>
+            </div>
+
+            <div class="pilar" style="--pilar-bg:#DCEBF7;--pilar-cor:#5790C6;">
+              <div class="pilar__icone" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="36" fill="#DCEBF7"/>
+                  <rect x="28" y="26" width="24" height="28" rx="4" stroke="#5790C6" stroke-width="2.5"/>
+                  <path d="M40 32 L40 48 M33 40 L47 40" stroke="#5790C6" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M55 24 C64 24,66 36,57 40" fill="none" stroke="#5790C6" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="57" cy="43" r="3" fill="#5790C6" opacity=".6"/>
+                </svg>
+              </div>
+              <strong class="pilar__nome">🩺 Check-ups</strong>
+              <span class="pilar__desc">Consultas regulares e vacinas em dia</span>
+            </div>
+
+          </div>
+
+          <!-- Linha do tempo das fases de vida -->
+          <div class="poster__linha-vida" aria-label="Fases da vida">
+            <p class="poster__linha-legenda">Cada fase contribui para a próxima →</p>
+            <div class="poster__fases">
+              <div class="fase">
+                <div class="fase__dot"></div>
+                <span>Infância</span>
+              </div>
+              <div class="fase fase--linha"></div>
+              <div class="fase">
+                <div class="fase__dot"></div>
+                <span>Adolescência</span>
+              </div>
+              <div class="fase fase--linha"></div>
+              <div class="fase">
+                <div class="fase__dot"></div>
+                <span>Vida Adulta</span>
+              </div>
+              <div class="fase fase--linha"></div>
+              <div class="fase">
+                <div class="fase__dot"></div>
+                <span>Maturidade</span>
+              </div>
+              <div class="fase fase--linha"></div>
+              <div class="fase">
+                <div class="fase__dot fase__dot--dest"></div>
+                <span><strong>Velhice</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <p class="poster__rodape">EEB Profª Lourdes A. S. Lago · Projeto "Envelhecer é um Direito" · 2026</p>
+        </div>
+
+        <!-- Frase de impacto -->
+        <blockquote class="prevencao__quote reveal">
+          <p>"A velhice saudável não começa aos 60 — começa agora, nas escolhas de hoje."</p>
+          <footer>— Organização Mundial da Saúde (OMS)</footer>
+        </blockquote>
+
+      </div>
+    </section>
+
     <!-- =================== DIREITOS =================== -->
     <section class="section direitos" id="direitos" aria-labelledby="direitosTitulo">
       <div class="container">
@@ -341,35 +506,6 @@
             <p class="card__text">
               Gratuidade no transporte coletivo urbano, vagas reservadas e cidades
               mais acessíveis para todas as idades.
-            </p>
-          </article>
-
-          <article class="card reveal" style="--delay: 160ms">
-            <div class="card__icon card__icon--gold">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="4" y="6" width="24" height="16" rx="2"/>
-                <path d="M4 22v4M28 22v4M10 26h12"/>
-                <path d="M12 12h8M12 16h5"/>
-              </svg>
-            </div>
-            <h3 class="card__title">Inclusão Digital</h3>
-            <p class="card__text">
-              Acesso à tecnologia e capacitação para o uso da internet,
-              combatendo o isolamento digital da terceira idade.
-            </p>
-          </article>
-
-          <article class="card reveal" style="--delay: 240ms">
-            <div class="card__icon card__icon--green">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M6 12h20l-2 14H8z"/>
-                <path d="M11 12V8a5 5 0 0 1 10 0v4"/>
-              </svg>
-            </div>
-            <h3 class="card__title">Trabalho</h3>
-            <p class="card__text">
-              Direito ao trabalho digno, sem discriminação por idade, com
-              valorização da experiência acumulada ao longo da vida.
             </p>
           </article>
 
@@ -419,19 +555,6 @@
         </div>
 
         <div class="mitos">
-          <article class="mito reveal" style="--delay: 0ms">
-            <div class="mito__cabeca">
-              <span class="mito__rotulo mito__rotulo--falso">Mito</span>
-              <p class="mito__texto">“Idoso não aprende coisas novas.”</p>
-            </div>
-            <div class="mito__corpo">
-              <span class="mito__rotulo mito__rotulo--verdade">Verdade</span>
-              <p>
-                A capacidade de aprender não tem prazo de validade. A mente continua
-                plástica ao longo de toda a vida — basta oportunidade, paciência e estímulo.
-              </p>
-            </div>
-          </article>
 
           <article class="mito reveal" style="--delay: 100ms">
             <div class="mito__cabeca">
@@ -645,6 +768,148 @@
       </div>
     </section>
 
+    <!-- =================== VISITAS =================== -->
+    <section class="section visitas" id="visitas" aria-labelledby="visitasTitulo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Saindo da sala de aula</span>
+          <h2 id="visitasTitulo" class="section__title">
+            Visitas <em>realizadas</em>
+          </h2>
+          <p class="section__lead">
+            Os estudantes foram além dos muros da escola para vivenciar de perto
+            a realidade das pessoas idosas, construindo laços e aprendizados que
+            nenhum livro poderia proporcionar.
+          </p>
+        </div>
+
+        <!-- === VISITA 1: Cidade do Idoso === -->
+        <div class="visita-bloco reveal">
+          <div class="visita-bloco__header">
+            <div class="visita-bloco__icone" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+                <path d="M3 11l13-8 13 8v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <path d="M11 29V17h10v12"/>
+              </svg>
+            </div>
+            <div>
+              <span class="visita-bloco__tag">Visita 1</span>
+              <h3 class="visita-bloco__titulo">Cidade do Idoso</h3>
+              <p class="visita-bloco__desc">
+                Uma visita ao espaço de convivência e atividades para pessoas idosas,
+                onde os alunos puderam conversar, ouvir histórias e compreender a
+                importância de ambientes que promovem autonomia e dignidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- Carrossel Cidade do Idoso -->
+          <div class="foto-carrossel" data-carrossel="cidade-idoso">
+            <div class="foto-carrossel__track">
+              <!-- Substitua os src pelas suas fotos reais -->
+              <!-- Fotos verticais e horizontais são tratadas automaticamente -->
+              <div class="foto-carrossel__slide active">
+                <img src="./image/cidade1.jpg" alt="Visita à Cidade do Idoso — foto 1" loading="lazy" 
+                     style="transform: scale(1.5);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/cidade2.jpg" alt="Visita à Cidade do Idoso — foto 2" loading="lazy" 
+                     style="transform: scale(1.4);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/cidade3.jpg" alt="Visita à Cidade do Idoso — foto 3" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/cidade4.jpg" alt="Visita à Cidade do Idoso — foto 4" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/cidade5.jpg" alt="Visita à Cidade do Idoso — foto 5" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+            </div>
+
+            <button class="foto-carrossel__btn foto-carrossel__btn--prev" aria-label="Foto anterior">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="foto-carrossel__btn foto-carrossel__btn--next" aria-label="Próxima foto">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="foto-carrossel__dots" role="tablist" aria-label="Fotos da Cidade do Idoso"></div>
+            <div class="foto-carrossel__contador" aria-live="polite">1 / 5</div>
+          </div>
+        </div>
+
+        <!-- === VISITA 2: Asilo === -->
+        <div class="visita-bloco reveal" style="--delay: 100ms">
+          <div class="visita-bloco__header">
+            <div class="visita-bloco__icone visita-bloco__icone--rose" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+                <path d="M16 28s-11-7-11-16a8 8 0 0 1 11-7 8 8 0 0 1 11 7c0 9-11 16-11 16z"/>
+                <path d="M16 14c2 1.5 7 1.5 9 0"/>
+              </svg>
+            </div>
+            <div>
+              <span class="visita-bloco__tag visita-bloco__tag--rose">Visita 2</span>
+              <h3 class="visita-bloco__titulo">Visita ao Asilo</h3>
+              <p class="visita-bloco__desc">
+                Os alunos visitaram um lar de longa permanência para idosos, levando
+                carinho, arte e música. O encontro entre gerações revelou histórias
+                de vida, superação e a importância do afeto no envelhecimento.
+              </p>
+            </div>
+          </div>
+
+          <!-- Carrossel Asilo -->
+          <div class="foto-carrossel" data-carrossel="asilo">
+            <div class="foto-carrossel__track">
+              <div class="foto-carrossel__slide active">
+                <img src="./image/asilo1.jpg" alt="Visita ao Asilo — foto 1" loading="lazy" 
+                     style="transform: scale(1.1);"/>
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo2.jpg" alt="Visita ao Asilo — foto 2" loading="lazy" 
+                    style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo3.jpg" alt="Visita ao Asilo — foto 3" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo4.jpg" alt="Visita ao Asilo — foto 4" loading="lazy"
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo5.jpg" alt="Visita ao Asilo — foto 5" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo6.jpg" alt="Visita ao Asilo — foto 5" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+              <div class="foto-carrossel__slide">
+                <img src="./image/asilo7.jpg" alt="Visita ao Asilo — foto 5" loading="lazy" 
+                     style="transform: scale(1.1);" />
+              </div>
+            </div>
+
+            <button class="foto-carrossel__btn foto-carrossel__btn--prev" aria-label="Foto anterior">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="foto-carrossel__btn foto-carrossel__btn--next" aria-label="Próxima foto">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="foto-carrossel__dots" role="tablist" aria-label="Fotos do Asilo"></div>
+            <div class="foto-carrossel__contador" aria-live="polite">1 / 5</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- =================== CRÉDITOS =================== -->
     <section class="section creditos" id="creditos" aria-labelledby="credTitulo">
       <div class="container">
@@ -662,7 +927,7 @@
         <div class="creditos-grid">
           <article class="prof-card reveal" style="--delay: 0ms; --bg: var(--primary-soft); --fg: var(--primary-dk);">
             <div class="prof-card__avatar">C</div>
-            <h3>Cassiana</h3>
+            <h3>Caciana</h3>
             <p>Professora responsável</p>
           </article>
           <article class="prof-card reveal" style="--delay: 100ms; --bg: var(--secondary-soft); --fg: var(--secondary-dk);">
@@ -701,12 +966,22 @@
     <div class="container footer__inner">
       <div class="footer__col footer__col--brand">
         <a href="#topo" class="logo logo--light">
-          <span class="logo__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 41s-13-8.5-13-19a8 8 0 0 1 13-6 8 8 0 0 1 13 6c0 10.5-13 19-13 19z"/>
-              <path d="M19 22c2 1.5 8 1.5 10 0"/>
-            </svg>
-          </span>
+        <span class="logo__icon" style="background: transparent; box-shadow: none; padding: 0;">
+    <img
+        src="./image/Logo.png"
+        alt="Logo Projeto Envelhecer"
+        style="
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            display: block;
+            position: relative;
+            top: -10px;
+        "
+    >
+</span>
           <span class="logo__text">
             Envelhecer é um <em>Direito</em>
             <small class="logo__sub logo__sub--light">Todas as idades importam</small>
@@ -723,6 +998,7 @@
         <ul class="footer__lista">
           <li><a href="#topo">Início</a></li>
           <li><a href="#projeto">O Projeto</a></li>
+          <li><a href="#prevencao">Prevenção</a></li>
           <li><a href="#direitos">Direitos</a></li>
           <li><a href="#etarismo">Etarismo</a></li>
           <li><a href="#jogo">Atividade</a></li>

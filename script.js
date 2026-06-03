@@ -14,6 +14,180 @@
   'use strict';
 
   /* =====================================================
+     0. CARROSSEL DE IMAGENS DO HERO
+     ===================================================== */
+  (() => {
+    const slides     = document.querySelectorAll('.hero__slide');
+    const dotsWrap   = document.getElementById('carouselDots');
+    const btnPrev    = document.getElementById('carouselPrev');
+    const btnNext    = document.getElementById('carouselNext');
+
+    if (!slides.length || !dotsWrap) return;
+
+    let current  = 0;
+    let timer    = null;
+    const DELAY  = 2500; // ms entre slides
+
+    // Cria dots dinamicamente
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'hero__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Ir para foto ${i + 1}`);
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const getDots = () => dotsWrap.querySelectorAll('.hero__dot');
+
+    const goTo = (idx) => {
+      slides[current].classList.remove('active');
+      getDots()[current].classList.remove('active');
+      getDots()[current].setAttribute('aria-selected', 'false');
+
+      current = (idx + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      getDots()[current].classList.add('active');
+      getDots()[current].setAttribute('aria-selected', 'true');
+
+      resetTimer();
+    };
+
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
+    const resetTimer = () => {
+      clearInterval(timer);
+      timer = setInterval(next, DELAY);
+    };
+
+    btnNext && btnNext.addEventListener('click', () => { next(); });
+    btnPrev && btnPrev.addEventListener('click', () => { prev(); });
+
+    // Suporte a swipe (touch)
+    let touchStartX = 0;
+    const carousel  = document.getElementById('heroCarousel');
+    if (carousel) {
+      carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      carousel.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+      }, { passive: true });
+    }
+
+    // Pausa ao focar/hover no hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      hero.addEventListener('mouseenter', () => clearInterval(timer));
+      hero.addEventListener('mouseleave', resetTimer);
+    }
+
+    // Suporte a teclado (setas)
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    // Inicia autoplay
+    resetTimer();
+  })();
+
+  /* =====  FIM DO CARROSSEL  ===== */
+
+  /* =====================================================
+     0b. CARROSSÉIS DE FOTOS (Seção Visitas)
+         Funciona para N carrosséis na página
+     ===================================================== */
+  document.querySelectorAll('.foto-carrossel').forEach(carrossel => {
+    const slides   = [...carrossel.querySelectorAll('.foto-carrossel__slide')];
+    const dotsWrap = carrossel.querySelector('.foto-carrossel__dots');
+    const contador = carrossel.querySelector('.foto-carrossel__contador');
+    const btnPrev  = carrossel.querySelector('.foto-carrossel__btn--prev');
+    const btnNext  = carrossel.querySelector('.foto-carrossel__btn--next');
+    const total    = slides.length;
+    if (!total) return;
+
+    let current = 0;
+
+    // Criar dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'foto-carrossel__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Foto ${i + 1}`);
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap && dotsWrap.appendChild(dot);
+    });
+
+    const getDots = () => dotsWrap ? [...dotsWrap.querySelectorAll('.foto-carrossel__dot')] : [];
+
+    const atualizarContador = () => {
+      if (contador) contador.textContent = `${current + 1} / ${total}`;
+    };
+
+    const goTo = (idx) => {
+      slides[current].classList.remove('active');
+      const dots = getDots();
+      if (dots[current]) {
+        dots[current].classList.remove('active');
+        dots[current].setAttribute('aria-selected', 'false');
+      }
+      current = (idx + total) % total;
+      slides[current].classList.add('active');
+      if (dots[current]) {
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+      atualizarContador();
+    };
+
+    // Autoplay 5 segundos
+    let timer = null;
+    const resetTimer = () => {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 3000);
+    };
+
+    const goToEResetar = (idx) => { goTo(idx); resetTimer(); };
+
+    btnNext && btnNext.addEventListener('click', () => goToEResetar(current + 1));
+    btnPrev && btnPrev.addEventListener('click', () => goToEResetar(current - 1));
+
+    // Pausa ao passar o mouse
+    carrossel.addEventListener('mouseenter', () => clearInterval(timer));
+    carrossel.addEventListener('mouseleave', resetTimer);
+
+    // Suporte a swipe (touch)
+    let touchStartX = 0;
+    carrossel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].clientX;
+      clearInterval(timer);
+    }, { passive: true });
+    carrossel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 45) dx < 0 ? goTo(current + 1) : goTo(current - 1);
+      resetTimer();
+    }, { passive: true });
+
+    // Suporte a teclado quando o carrossel está em foco
+    carrossel.setAttribute('tabindex', '0');
+    carrossel.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  goToEResetar(current - 1);
+      if (e.key === 'ArrowRight') goToEResetar(current + 1);
+    });
+
+    atualizarContador();
+    resetTimer(); // inicia autoplay
+  });
+
+  /* ===  FIM DOS FOTO-CARROSSÉIS  === */
+
+  /* =====================================================
      1. HEADER — sombra ao rolar
      ===================================================== */
   const header = document.querySelector('.header');
@@ -81,7 +255,7 @@
      3. LINK ATIVO (destaca a seção que está visível)
      ===================================================== */
   const links   = document.querySelectorAll('.nav__link');
-  const secoes  = ['topo', 'projeto', 'direitos', 'etarismo', 'jogo', 'creditos']
+  const secoes  = ['topo', 'projeto', 'direitos', 'etarismo', 'jogo', 'visitas', 'creditos']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
