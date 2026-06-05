@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Sitemap enviado ao Google para ajudar na indexação do site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal do projeto -->
+  <url>
+    <loc>https://www.projetoenvelhecimento.com.br/</loc>
+
+    <!-- Data da última atualização -->
+    <lastmod>2026-06-05</lastmod>
+
+    <!-- Frequência estimada de mudanças -->
+    <changefreq>monthly</changefreq>
+
+    <!-- Prioridade da página (máxima) -->
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
