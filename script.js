@@ -671,3 +671,273 @@
   };
 
 })();
+
+/* =====================================================
+   8. JOGO DE ANTÔNIMOS
+   ===================================================== */
+(() => {
+  'use strict';
+
+  // ---------- BANCO DE PALAVRAS ----------
+  const banco = {
+    facil: [
+      { palavra:'Alegria',   correto:'Tristeza',   distratores:['Raiva','Medo','Amor'],          categoria:'Sentimentos',  explicacao:'"Alegria" e "Tristeza" são emoções opostas — uma representa felicidade, a outra, pesar.' },
+      { palavra:'Quente',    correto:'Frio',        distratores:['Morno','Gelado','Fresco'],       categoria:'Temperatura',  explicacao:'O antônimo de "Quente" é "Frio" — temperaturas extremas e opostas.' },
+      { palavra:'Grande',    correto:'Pequeno',     distratores:['Médio','Enorme','Largo'],        categoria:'Tamanho',      explicacao:'"Grande" e "Pequeno" indicam tamanhos contrários.' },
+      { palavra:'Dia',       correto:'Noite',       distratores:['Tarde','Manhã','Anoitecer'],     categoria:'Tempo',        explicacao:'O dia é claro; a noite é escura — opostos naturais.' },
+      { palavra:'Alto',      correto:'Baixo',       distratores:['Médio','Largo','Estreito'],      categoria:'Dimensão',     explicacao:'"Alto" e "Baixo" descrevem alturas contrárias.' },
+      { palavra:'Bonito',    correto:'Feio',        distratores:['Lindo','Estranho','Simples'],    categoria:'Aparência',    explicacao:'Na linguagem comum, "Bonito" e "Feio" são percepções opostas de beleza.' },
+      { palavra:'Aberto',    correto:'Fechado',     distratores:['Livre','Vazio','Ocupado'],       categoria:'Estado',       explicacao:'Uma porta pode estar aberta ou fechada — estados contrários.' },
+      { palavra:'Rápido',    correto:'Lento',       distratores:['Veloz','Devagar','Ágil'],        categoria:'Velocidade',   explicacao:'"Rápido" indica velocidade alta; "Lento", velocidade baixa.' },
+      { palavra:'Limpo',     correto:'Sujo',        distratores:['Arrumado','Molhado','Velho'],    categoria:'Condição',     explicacao:'"Limpo" e "Sujo" são condições opostas de higiene.' },
+      { palavra:'Novo',      correto:'Velho',       distratores:['Antigo','Usado','Atual'],        categoria:'Idade',        explicacao:'"Novo" refere-se ao que é recente; "Velho", ao que tem muita idade.' },
+    ],
+    medio: [
+      { palavra:'Coragem',   correto:'Covardia',   distratores:['Valentia','Timidez','Medo'],     categoria:'Virtudes',     explicacao:'"Coragem" é a disposição para enfrentar o perigo; "Covardia" é o seu oposto.' },
+      { palavra:'Generoso',  correto:'Mesquinho',  distratores:['Bondoso','Egoísta','Humilde'],   categoria:'Caráter',      explicacao:'Quem é "Generoso" dá com prazer; quem é "Mesquinho" guarda tudo para si.' },
+      { palavra:'Abundante', correto:'Escasso',    distratores:['Suficiente','Raro','Vazio'],     categoria:'Quantidade',   explicacao:'"Abundante" significa muito; "Escasso" significa pouco ou quase nada.' },
+      { palavra:'Orgulho',   correto:'Humildade',  distratores:['Vaidade','Modéstia','Vergonha'], categoria:'Sentimentos',  explicacao:'O "Orgulho" excessivo se opõe à "Humildade", que é reconhecer os próprios limites.' },
+      { palavra:'Avançar',   correto:'Recuar',     distratores:['Parar','Girar','Subir'],         categoria:'Movimento',    explicacao:'"Avançar" é ir à frente; "Recuar" é voltar para trás.' },
+      { palavra:'Construir', correto:'Destruir',   distratores:['Reformar','Desfazer','Criar'],   categoria:'Ação',         explicacao:'"Construir" é erguer algo; "Destruir" é desfazê-lo completamente.' },
+      { palavra:'Incluir',   correto:'Excluir',    distratores:['Adicionar','Retirar','Separar'], categoria:'Ação',         explicacao:'"Incluir" é trazer para dentro; "Excluir" é deixar de fora.' },
+      { palavra:'Verdade',   correto:'Mentira',    distratores:['Opinião','Ilusão','Engano'],     categoria:'Conceitos',    explicacao:'"Verdade" é o que corresponde à realidade; "Mentira" é o seu oposto.' },
+      { palavra:'Otimista',  correto:'Pessimista', distratores:['Realista','Cético','Neutro'],    categoria:'Atitude',      explicacao:'O "Otimista" vê o lado bom; o "Pessimista" foca no lado ruim.' },
+      { palavra:'Acender',   correto:'Apagar',     distratores:['Iluminar','Queimar','Ligar'],    categoria:'Ação',         explicacao:'"Acender" é fazer algo brilhar; "Apagar" é cessar essa luz ou fogo.' },
+    ],
+    dificil: [
+      { palavra:'Prolixo',    correto:'Conciso',    distratores:['Extenso','Breve','Complexo'],         categoria:'Linguagem',    explicacao:'"Prolixo" descreve quem fala demais; "Conciso" é quem vai direto ao ponto.' },
+      { palavra:'Frugal',     correto:'Pródigo',    distratores:['Simples','Gastador','Parco'],          categoria:'Hábitos',      explicacao:'"Frugal" é moderado nos gastos; "Pródigo" é quem gasta em excesso.' },
+      { palavra:'Efêmero',    correto:'Eterno',     distratores:['Passageiro','Infinito','Breve'],       categoria:'Tempo',        explicacao:'"Efêmero" é o que dura muito pouco; "Eterno" é o que não tem fim.' },
+      { palavra:'Austero',    correto:'Indulgente', distratores:['Rígido','Permissivo','Severo'],        categoria:'Comportamento',explicacao:'"Austero" é rigoroso; "Indulgente" é tolerante e compreensivo.' },
+      { palavra:'Próspero',   correto:'Miserável',  distratores:['Rico','Pobre','Abastado'],             categoria:'Condição',     explicacao:'"Próspero" indica abundância; "Miserável" indica extrema pobreza.' },
+      { palavra:'Belicoso',   correto:'Pacífico',   distratores:['Agressivo','Calmo','Violento'],        categoria:'Atitude',      explicacao:'"Belicoso" gosta de brigar; "Pacífico" busca a paz.' },
+      { palavra:'Lúgubre',    correto:'Alegre',     distratores:['Sombrio','Festivo','Triste'],          categoria:'Atmosfera',    explicacao:'"Lúgubre" evoca tristeza; "Alegre" transmite leveza e felicidade.' },
+      { palavra:'Superficial',correto:'Profundo',   distratores:['Raso','Denso','Elevado'],              categoria:'Profundidade', explicacao:'"Superficial" fica na camada externa; "Profundo" vai fundo no sentimento.' },
+      { palavra:'Transitório',correto:'Permanente', distratores:['Passageiro','Duradouro','Fixo'],       categoria:'Duração',      explicacao:'"Transitório" é o que passa; "Permanente" é o que fica.' },
+      { palavra:'Altruísta',  correto:'Egoísta',    distratores:['Generoso','Individualista','Solidário'],categoria:'Caráter',    explicacao:'"Altruísta" pensa no bem do outro; "Egoísta" só pensa em si mesmo.' },
+    ]
+  };
+
+  // ---------- ESTADO ----------
+  let nivelAtual = 'facil';
+  let perguntas  = [];
+  let indice     = 0;
+  let pontos     = 0;
+  let sequencia  = 0;
+  let respondido = false;
+  let timerInt   = null;
+  const TOTAL    = 10;
+  const TIMER    = 3;
+  const CIRCUM   = 2 * Math.PI * 20; // 125.66
+
+  // ---------- ELEMENTOS ----------
+  const elPontos     = document.getElementById('antPontos');
+  const elRodada     = document.getElementById('antRodada');
+  const elSequencia  = document.getElementById('antSequencia');
+  const elCategoria  = document.getElementById('antCategoria');
+  const elPalavra    = document.getElementById('antPalavra');
+  const elOpcoes     = document.getElementById('antOpcoes');
+  const elFeedback   = document.getElementById('antFeedback');
+  const elExplicacao = document.getElementById('antExplicacao');
+  const elTimer      = document.getElementById('antTimer');
+  const elTimerFill  = document.getElementById('antTimerFill');
+  const elTimerNum   = document.getElementById('antTimerNum');
+  const elBtnPular   = document.getElementById('antBtnPular');
+  const elProgBarra  = document.getElementById('antProgressoBarra');
+  const elProgWrap   = document.getElementById('antProgressoWrap');
+  const elJogoArea   = document.getElementById('antJogoArea');
+  const elResultado  = document.getElementById('antResultado');
+  const elBtnReinic  = document.getElementById('antBtnReiniciar');
+  const elBtnJogar   = document.getElementById('antBtnJogarNovamente');
+  const elBtnNivel   = document.getElementById('antBtnMudarNivel');
+  const elDifBtns    = document.querySelectorAll('.ant__dif-btn');
+
+  if (!elPontos) return; // seção não existe na página
+
+  // ---------- UTILS ----------
+  const embaralhar = arr => [...arr].sort(() => Math.random() - .5);
+
+  const gerarPerguntas = () => embaralhar(banco[nivelAtual]).slice(0, TOTAL);
+
+  // ---------- TIMER ----------
+  function iniciarTimer() {
+    let restante = TIMER;
+    elTimer.classList.add('visivel');
+    atualizarCirculo(restante);
+
+    timerInt = setInterval(() => {
+      restante--;
+      atualizarCirculo(restante);
+      if (restante <= 0) {
+        pararTimer();
+        proximaPergunta();
+      }
+    }, 1000);
+  }
+
+  function pararTimer() {
+    clearInterval(timerInt);
+    timerInt = null;
+    elTimer.classList.remove('visivel');
+    elTimerFill.classList.remove('urgente');
+    elTimerNum.classList.remove('urgente');
+    elTimerFill.style.strokeDashoffset = '0';
+  }
+
+  function atualizarCirculo(restante) {
+    elTimerNum.textContent = restante;
+    const offset = CIRCUM * (1 - restante / TIMER);
+    elTimerFill.style.strokeDashoffset = offset;
+    elTimerFill.style.strokeDasharray  = CIRCUM;
+    const urgente = restante <= 1;
+    elTimerFill.classList.toggle('urgente', urgente);
+    elTimerNum.classList.toggle('urgente', urgente);
+  }
+
+  // ---------- MOSTRAR PERGUNTA ----------
+  function mostrarPergunta() {
+    const q = perguntas[indice];
+    respondido = false;
+
+    elCategoria.textContent = q.categoria;
+    elPalavra.textContent   = q.palavra;
+
+    // Reinicia animação
+    const wrap = document.getElementById('antPerguntaWrap');
+    wrap.style.animation = 'none';
+    void wrap.offsetWidth;
+    wrap.style.animation = '';
+
+    // Progresso
+    const pct = (indice / TOTAL) * 100;
+    elProgBarra.style.width = pct + '%';
+    elProgWrap.setAttribute('aria-valuenow', indice);
+    elRodada.textContent    = (indice + 1) + ' / ' + TOTAL;
+
+    // Opções
+    const opcoes = embaralhar([q.correto, ...q.distratores.slice(0, 3)]);
+    elOpcoes.innerHTML = '';
+    opcoes.forEach(op => {
+      const btn    = document.createElement('button');
+      btn.className   = 'ant__opcao';
+      btn.textContent = op;
+      btn.type        = 'button';
+      btn.addEventListener('click', () => responder(btn, op, q));
+      elOpcoes.appendChild(btn);
+    });
+
+    elFeedback.textContent  = '';
+    elFeedback.className    = 'ant__feedback';
+    elExplicacao.className  = 'ant__explicacao';
+  }
+
+  // ---------- RESPONDER ----------
+  function responder(btn, escolha, q) {
+    if (respondido) return;
+    respondido = true;
+
+    const acertou = escolha === q.correto;
+
+    elOpcoes.querySelectorAll('.ant__opcao').forEach(b => {
+      b.disabled = true;
+      if (b.textContent === q.correto) b.classList.add('correta');
+    });
+
+    if (acertou) {
+      btn.classList.add('correta');
+      sequencia++;
+      const bonus = sequencia >= 3 ? 15 : sequencia >= 2 ? 12 : 10;
+      pontos += bonus;
+      elFeedback.textContent = sequencia >= 3
+        ? '🔥 Incrível! +' + bonus + ' pontos (sequência de ' + sequencia + '!)'
+        : '✅ Correto! +' + bonus + ' pontos';
+      elFeedback.className = 'ant__feedback acerto';
+    } else {
+      btn.classList.add('errada');
+      sequencia = 0;
+      elFeedback.textContent = '❌ Quase! O antônimo é "' + q.correto + '"';
+      elFeedback.className   = 'ant__feedback erro';
+    }
+
+    elPontos.textContent    = pontos;
+    elSequencia.textContent = sequencia >= 3 ? '🔥 ' + sequencia : '⭐ ' + sequencia;
+
+    elExplicacao.innerHTML = '<strong>Sabia que…</strong> ' + q.explicacao;
+    elExplicacao.className = 'ant__explicacao visivel';
+
+    iniciarTimer();
+  }
+
+  // ---------- PRÓXIMA PERGUNTA ----------
+  function proximaPergunta() {
+    indice++;
+    if (indice >= TOTAL) {
+      mostrarResultado();
+    } else {
+      mostrarPergunta();
+    }
+  }
+
+  // ---------- RESULTADO FINAL ----------
+  function mostrarResultado() {
+    elProgBarra.style.width = '100%';
+    elJogoArea.classList.add('escondido');
+    elResultado.classList.add('visivel');
+
+    const pct   = Math.round((pontos / (TOTAL * 15)) * 100);
+    const emoji = document.getElementById('antResultEmoji');
+    const tit   = document.getElementById('antResultTitulo');
+    const pts   = document.getElementById('antResultPontos');
+    const desc  = document.getElementById('antResultDesc');
+
+    if (pct >= 90) {
+      emoji.textContent = '🏆'; tit.textContent = 'Excelente!';
+      desc.textContent  = 'Vocabulário perfeito! Você domina os antônimos.';
+    } else if (pct >= 70) {
+      emoji.textContent = '🎉'; tit.textContent = 'Muito bem!';
+      desc.textContent  = 'Ótimo desempenho! Continue praticando.';
+    } else if (pct >= 50) {
+      emoji.textContent = '👍'; tit.textContent = 'Bom trabalho!';
+      desc.textContent  = 'Você está no caminho certo. Tente novamente!';
+    } else {
+      emoji.textContent = '📚'; tit.textContent = 'Continue praticando!';
+      desc.textContent  = 'Cada tentativa é um aprendizado. Não desista!';
+    }
+    pts.textContent = pontos + ' pontos';
+  }
+
+  // ---------- REINICIAR ----------
+  function reiniciar() {
+    pararTimer();
+    pontos = indice = sequencia = 0;
+    perguntas = gerarPerguntas();
+    elPontos.textContent    = '0';
+    elSequencia.textContent = '⭐ 0';
+    elResultado.classList.remove('visivel');
+    elJogoArea.classList.remove('escondido');
+    mostrarPergunta();
+  }
+
+  // ---------- EVENTOS ----------
+  elBtnPular.addEventListener('click', () => { pararTimer(); proximaPergunta(); });
+  elBtnReinic.addEventListener('click', reiniciar);
+  elBtnJogar.addEventListener('click', reiniciar);
+  elBtnNivel.addEventListener('click', () => {
+    elResultado.classList.remove('visivel');
+    elJogoArea.classList.remove('escondido');
+    document.querySelector('.ant__dificuldade').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  elDifBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      elDifBtns.forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+      nivelAtual = btn.dataset.nivel;
+      reiniciar();
+    });
+  });
+
+  // ---------- INICIAR ----------
+  reiniciar();
+
+})();

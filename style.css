@@ -2296,3 +2296,317 @@ em { font-style: italic; color: var(--accent-dk); }
 @media (hover: none), (pointer: coarse) {
   .hero__carousel-btn { display: none; }
 }
+
+/* =========================================================
+   JOGO DE ANTÔNIMOS
+   ========================================================= */
+
+.antonimos {
+  background: var(--bg-alt);
+}
+
+/* Seletor de dificuldade */
+.ant__dificuldade {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.ant__dif-btn {
+  padding: .55rem 1.3rem;
+  border-radius: 999px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  border: 2px solid var(--line);
+  color: var(--ink-soft);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all var(--t);
+}
+.ant__dif-btn:hover,
+.ant__dif-btn.ativo {
+  background: var(--accent-soft);
+  border-color: var(--accent-dk);
+  color: var(--accent-dk);
+}
+
+/* Painel de estatísticas — reutiliza .ant__painel + .painel__* do jogo da memória */
+.ant__painel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  margin: 0 auto 2rem;
+  max-width: 900px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+
+/* Barra de progresso */
+.ant__progresso {
+  height: 8px;
+  background: var(--line);
+  border-radius: 999px;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  max-width: 900px;
+  margin-inline: auto;
+}
+.ant__progresso-barra {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 999px;
+  transition: width .6s ease;
+}
+
+/* Pergunta */
+.ant__pergunta-wrap {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: antFadeDown .4s ease;
+}
+@keyframes antFadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ant__categoria {
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--primary-dk);
+  background: var(--primary-soft);
+  padding: .35rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.ant__palavra {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.ant__instrucao {
+  font-size: var(--fs-lg);
+  color: var(--ink-soft);
+}
+
+/* Opções */
+.ant__opcoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.ant__opcao {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--t);
+  min-height: 64px;
+}
+.ant__opcao:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.ant__opcao.correta {
+  background: var(--secondary-soft);
+  border-color: var(--secondary-dk);
+  color: var(--secondary-dk);
+  animation: antPulseVerde .4s ease;
+}
+@keyframes antPulseVerde {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.ant__opcao.errada {
+  background: var(--rose-soft);
+  border-color: var(--rose);
+  color: #B86B6B;
+  animation: antShake .35s ease;
+}
+@keyframes antShake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-8px); }
+  75%       { transform: translateX(8px); }
+}
+.ant__opcao:disabled { cursor: default; }
+
+/* Feedback */
+.ant__feedback {
+  text-align: center;
+  min-height: 2rem;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+.ant__feedback.acerto { color: var(--secondary-dk); }
+.ant__feedback.erro   { color: #B86B6B; }
+
+/* Explicação */
+.ant__explicacao {
+  display: none;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.25rem;
+  margin: 0 auto 1.75rem;
+  max-width: 700px;
+  font-size: var(--fs-base);
+  color: var(--ink-soft);
+  animation: antFadeIn .3s ease;
+}
+@keyframes antFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.ant__explicacao.visivel { display: block; }
+
+/* Timer countdown */
+.ant__timer {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  margin-bottom: 1.5rem;
+}
+.ant__timer.visivel { display: flex; }
+
+.ant__timer-texto {
+  font-size: var(--fs-base);
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.ant__timer-circulo {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+.ant__timer-circulo svg { transform: rotate(-90deg); }
+
+.ant__timer-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 4;
+}
+.ant__timer-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 125.66;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke .3s;
+}
+.ant__timer-fill.urgente { stroke: var(--rose); }
+
+.ant__timer-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-dk);
+}
+.ant__timer-num.urgente { color: #B86B6B; }
+
+.ant__btn-pular {
+  padding: .5rem 1.2rem;
+  border-radius: 999px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  border: 2px solid var(--line);
+  color: var(--ink-soft);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all var(--t);
+}
+.ant__btn-pular:hover {
+  border-color: var(--accent);
+  color: var(--accent-dk);
+}
+
+/* Resultado final */
+.ant__resultado {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  max-width: 560px;
+  margin: 0 auto;
+  animation: antFadeIn .5s ease;
+}
+.ant__resultado.visivel { display: block; }
+
+.ant__resultado-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  animation: bounce 1.2s ease infinite;
+}
+
+.ant__resultado-titulo {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  margin-bottom: .75rem;
+}
+
+.ant__resultado-pontos {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  color: var(--accent-dk);
+  margin-bottom: .5rem;
+}
+
+.ant__resultado-desc {
+  color: var(--ink-soft);
+  font-size: var(--fs-lg);
+  margin-bottom: 2rem;
+}
+
+.ant__resultado-acoes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Área do jogo oculta no resultado */
+.ant__jogo-area.escondido { display: none; }
+
+/* Responsividade */
+@media (max-width: 520px) {
+  .ant__opcoes { grid-template-columns: 1fr; }
+  .ant__palavra { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .ant__painel  { padding: 1.25rem 1rem; gap: .75rem 1rem; }
+}

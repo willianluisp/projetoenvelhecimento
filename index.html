@@ -72,11 +72,12 @@
       <nav class="nav" id="navMenu" aria-label="Navegação principal">
         <ul class="nav__list">
           <li><a href="#topo" class="nav__link">Início</a></li>
-          <li><a href="#projeto" class="nav__link">O Projeto</a></li>
+          <li><a href="#projeto" class="nav__link">Projeto</a></li>
           <li><a href="#prevencao" class="nav__link">Prevenção</a></li>
           <li><a href="#direitos" class="nav__link">Direitos</a></li>
           <li><a href="#etarismo" class="nav__link">Etarismo</a></li>
-          <li><a href="#jogo" class="nav__link">Atividade</a></li>
+          <li><a href="#jogo" class="nav__link">Memória</a></li>
+          <li><a href="#antonimos" class="nav__link">Antônimos</a></li>
           <li><a href="#visitas" class="nav__link">Visitas</a></li>
           <li><a href="#creditos" class="nav__link">Créditos</a></li>
         </ul>
@@ -154,6 +155,7 @@
               </svg>
             </a>
             <a href="#jogo" class="btn btn--ghost btn--lg hero__btn--ghost-light">Memória Afetiva</a>
+            <a href="#antonimos" class="btn btn--ghost btn--lg hero__btn--ghost-light">Palavras Opostas</a>
           </div>
         </div>
       </div>
@@ -735,6 +737,100 @@
       </div>
     </section>
 
+
+    <!-- =================== JOGO DE ANTÔNIMOS =================== -->
+    <section class="section antonimos" id="antonimos" aria-labelledby="antonimosTitulo">
+      <div class="container">
+
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Atividade prática</span>
+          <h2 id="antonimosTitulo" class="section__title">
+            Palavras ao <em>Contrário</em>
+          </h2>
+          <p class="section__lead">
+            Descubra o antônimo — a palavra de significado oposto! Uma atividade divertida
+            para exercitar o vocabulário e manter a mente ativa em qualquer idade.
+          </p>
+        </div>
+
+        <div class="ant__dificuldade reveal" role="group" aria-label="Nível de dificuldade">
+          <button class="ant__dif-btn ativo" data-nivel="facil" type="button">🌱 Fácil</button>
+          <button class="ant__dif-btn" data-nivel="medio" type="button">🌿 Médio</button>
+          <button class="ant__dif-btn" data-nivel="dificil" type="button">🌳 Difícil</button>
+        </div>
+
+        <div class="ant__painel reveal" role="region" aria-label="Estatísticas do jogo de antônimos">
+          <div class="painel__item">
+            <span class="painel__label">Pontos</span>
+            <span class="painel__valor" id="antPontos">0</span>
+          </div>
+          <div class="painel__item">
+            <span class="painel__label">Rodada</span>
+            <span class="painel__valor" id="antRodada">1 / 10</span>
+          </div>
+          <div class="painel__item">
+            <span class="painel__label">Sequência</span>
+            <span class="painel__valor" id="antSequencia">⭐ 0</span>
+          </div>
+          <div class="painel__acoes">
+            <button class="btn btn--secondary" id="antBtnReiniciar" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+              Reiniciar
+            </button>
+          </div>
+        </div>
+
+        <div class="ant__progresso reveal" role="progressbar" aria-label="Progresso" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10" id="antProgressoWrap">
+          <div class="ant__progresso-barra" id="antProgressoBarra" style="width:0%"></div>
+        </div>
+
+        <div class="ant__jogo-area" id="antJogoArea">
+
+          <div class="ant__pergunta-wrap reveal" id="antPerguntaWrap">
+            <span class="ant__categoria" id="antCategoria">Sentimentos</span>
+            <div class="ant__palavra" id="antPalavra" aria-live="polite">Alegria</div>
+            <p class="ant__instrucao">Qual é o antônimo desta palavra?</p>
+          </div>
+
+          <div class="ant__opcoes" id="antOpcoes" role="group" aria-label="Opções de resposta"></div>
+
+          <div class="ant__feedback" id="antFeedback" aria-live="assertive"></div>
+
+          <div class="ant__explicacao" id="antExplicacao"></div>
+
+          <div class="ant__timer" id="antTimer" aria-live="polite">
+            <span class="ant__timer-texto">Próxima em</span>
+            <div class="ant__timer-circulo">
+              <svg viewBox="0 0 48 48" width="48" height="48">
+                <circle class="ant__timer-track" cx="24" cy="24" r="20"/>
+                <circle class="ant__timer-fill" id="antTimerFill" cx="24" cy="24" r="20"/>
+              </svg>
+              <div class="ant__timer-num" id="antTimerNum">3</div>
+            </div>
+            <button class="ant__btn-pular" id="antBtnPular" type="button">Pular agora</button>
+          </div>
+
+        </div>
+
+        <div class="ant__resultado" id="antResultado" aria-live="polite">
+          <div class="ant__resultado-emoji" id="antResultEmoji">🎉</div>
+          <div class="ant__resultado-titulo" id="antResultTitulo">Parabéns!</div>
+          <div class="ant__resultado-pontos" id="antResultPontos">0 pontos</div>
+          <p class="ant__resultado-desc" id="antResultDesc">Você completou o jogo!</p>
+          <div class="ant__resultado-acoes">
+            <button class="btn btn--primary" id="antBtnJogarNovamente" type="button">Jogar novamente</button>
+            <button class="btn btn--ghost" id="antBtnMudarNivel" type="button">Mudar nível</button>
+          </div>
+        </div>
+
+        <p class="jogo__dica reveal">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Compartilhe com alguém da família — jogar junto é ainda mais divertido!
+        </p>
+
+      </div>
+    </section>
+
     <!-- =================== METODOLOGIA & RESULTADOS =================== -->
     <section class="section metodologia" aria-labelledby="metodTitulo">
       <div class="container">
@@ -1024,7 +1120,8 @@
           <li><a href="#prevencao">Prevenção</a></li>
           <li><a href="#direitos">Direitos</a></li>
           <li><a href="#etarismo">Etarismo</a></li>
-          <li><a href="#jogo">Atividade</a></li>
+          <li><a href="#jogo">Memória</a></li>
+          <li><a href="#antonimos">Antônimos</a></li>
           <li><a href="#creditos">Créditos</a></li>
         </ul>
       </div>
