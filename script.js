@@ -940,4 +940,82 @@
   // ---------- INICIAR ----------
   reiniciar();
 
+  /* =====================================================
+     GALERIA "REGISTROS DA PRODUÇÃO" — lightbox clicável
+     Abre a foto em tamanho grande ao clicar, com legenda,
+     botão de fechar, clique fora e tecla Esc.
+     ===================================================== */
+  (() => {
+    const itens = document.querySelectorAll('.eu2076-galeria__item');
+    if (!itens.length) return;
+
+    let lightbox = null;
+    let ultimoFoco = null;
+
+    const abrir = (img, legenda) => {
+      ultimoFoco = document.activeElement;
+
+      lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.setAttribute('role', 'dialog');
+      lightbox.setAttribute('aria-modal', 'true');
+      lightbox.setAttribute('aria-label', legenda || 'Imagem ampliada');
+
+      lightbox.innerHTML = `
+        <button class="lightbox__fechar" type="button" aria-label="Fechar imagem">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <figure class="lightbox__conteudo">
+          <img src="${img.src}" alt="${img.alt || ''}">
+          ${legenda ? `<figcaption>${legenda}</figcaption>` : ''}
+        </figure>
+      `;
+
+      document.body.appendChild(lightbox);
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => lightbox.classList.add('is-aberto'));
+
+      lightbox.querySelector('.lightbox__fechar').addEventListener('click', fechar);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) fechar();
+      });
+      lightbox.querySelector('.lightbox__fechar').focus();
+    };
+
+    const fechar = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-aberto');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightbox.remove();
+        lightbox = null;
+        if (ultimoFoco) ultimoFoco.focus();
+      }, 250);
+    };
+
+    itens.forEach(item => {
+      const img = item.querySelector('img');
+      const cap = item.querySelector('figcaption');
+      if (!img) return;
+
+      item.classList.add('eu2076-galeria__item--clicavel');
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', 'Ampliar imagem: ' + (cap ? cap.textContent : img.alt));
+
+      const abrirEsta = () => abrir(img, cap ? cap.textContent : '');
+      item.addEventListener('click', abrirEsta);
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          abrirEsta();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox) fechar();
+    });
+  })();
+
 })();
